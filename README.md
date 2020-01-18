@@ -3,6 +3,30 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Implementation
+
+The PID controller in this instance works by producing an output to the steering that is dependent and opposite to the following components:
+- Proportional to the Cross Track Error
+- Derivative with respect to the changes of the CTE in time
+- Integral that remembers the past history of the CTE value in time
+
+The tuning of the parameters was done manually.
+Ther first values for both the P and the D components were taken from the course itself.
+The P component was increased so that the more the vehicle is away from the center of the road the car is steered to bring the car back on track.
+This has the effect of producing higher oscillations. In the same manner that was presented in the course the D component was increased to reduce oscillations until a smooth trajectory is observed. The increase od the P and D components was done until the desired behavior was observed.
+The controller used was actually a PD controller.
+
+The final parameters are:
+Kp = 0.16
+Kd = 1.9
+Ki = 0.0
+
+Improvements:
+- The trajectory smoothness as well as speed can be improved by adding a PID controller for the throttle
+- Implementation of the twiddle algorithm to better automatically fine-tune the parameters
+
+See the video output present in the [video_output](./video_output/video_out.mkv) directory.
+
 ## Dependencies
 
 * cmake >= 3.5
